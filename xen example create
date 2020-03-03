@@ -1,0 +1,38 @@
+name = "mint"
+uuid = "13dcf0f2-4908-1284-69a9-fcb857c14978"
+memory = 8192
+maxmem = 8192
+vcpus = 4
+#builder = "hvm"
+#kernel = "/usr/lib/xen/boot/hvmloader"
+#boot = "c"
+#extid=1
+#viridian = 0
+#rtc_timeoffset = 0
+#localtime = 0
+#on_poweroff = "destroy"
+#on_reboot = "restart"
+#on_crash = "destroy"
+#device_model = "/usr/lib/xen/bin/qemu-dm"
+#stdvga=0
+#vnc=1
+#vncunused=1
+#keymap = "de"
+#apic=1
+#acpi=1
+#pae=1
+#usb=1
+#usbdevice='tablet'
+on_poweroff="destroy"
+on_reboot="restart"
+on_crash="destroy"
+localtime=0
+builder="linux"
+bootloader="pygrub"
+bootargs=""
+extra="elevator=noop"
+vfb=['type=vnc,vncunused=1']
+#vif = [ "mac=00:16:3e:1f:44:ae,bridge=br0,script=vif-bridge,model=rtl8139" ]
+vif = [ "mac=00:16:3e:1f:44:ae,bridge=br0", ]
+#disk = [ "phy:/dev/drbd3,hda,w", "file:/sourcen/linuxmint-17.3-cinnamon-64bit.iso,hdd:cdrom,r" ]
+disk = [ "drbd:hidden,hda,w", "file:/sourcen/linuxmint-17.3-cinnamon-64bit.iso,hdd:cdrom,r" ]
